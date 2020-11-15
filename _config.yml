@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 
+title: '璃月港风格的博客'
 subtitle: ''
 description: ''
 keywords:
@@ -104,23 +104,5 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/Alisa-Amiela/Blog
+  repo: https://github.com/Alisa-Amiela/Alisa-Amiela.github.io
   branch: master
-  
-  
-live2d:
-  enable: true
-  scriptFrom: local
-  pluginRootPath: live2dw/
-  pluginJsPath: lib/
-  pluginModelPath: assets/
-  tagMode: false
-  debug: false
-  model:
-    use: live2d-widget-model-hijiki
-  display:
-    position: right
-    width: 150
-    height: 300
-  mobile:
-    show: true

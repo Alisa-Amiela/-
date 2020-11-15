@@ -61,6 +61,8 @@ katex: https://cdn.staticfile.org/KaTeX/0.11.1/
 
 aplayer: https://cdn.staticfile.org/aplayer/1.10.1/
 
+meting: https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/
+
 busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
 clipboard: https://cdn.staticfile.org/clipboard.js/2.0.6/
@@ -76,5 +78,3 @@ blueimp_md5: https://cdn.staticfile.org/blueimp-md5/2.13.0/
 disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.0/dist/
 
 hint: /lib/hint/
-
-metingjS: https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/

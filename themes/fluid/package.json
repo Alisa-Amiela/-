@@ -37,8 +37,5 @@
     "hooks": {
       "pre-commit": "npm run lint"
     }
-  },
-  "dependencies": {
-    "hexo-cli": "^4.2.0"
   }
 }

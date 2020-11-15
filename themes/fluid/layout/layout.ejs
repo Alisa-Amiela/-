@@ -10,6 +10,46 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 <html lang="<%= config.language %>" <%= colorSchema ? `data-default-color-scheme="${colorSchema}"` : '' %>>
 
 <%- partial('_partial/head') %>
+  
+<script type="text/javascript">
+(function($){
+    var MyApp = {
+        initPjax: function(){
+            var self = this;
+            // 初始化
+            $(document).pjax('a', '#pjax-container', {
+            	fragment: "#pjax-container",
+            	timeout: 5000
+            });
+            // pjax请求开始
+            $(document).on('pjax:start', function () {
+
+            });
+            // PJAX 渲染结束时
+            $(document).on('pjax:end', function() {
+                self.siteBootUp();
+                //在「局部刷新」时才会运行
+                console.log("局部执行");
+            });
+            self.siteBootUp();
+        },
+        /*
+        * Things to be execute when normal page load
+        * and pjax page load.
+        */
+        siteBootUp: function(){
+            //「局部刷新」和「页面刷新」都需要运行的代码
+            console.log("全局执行");
+        }
+    };
+    window.MyApp = MyApp;
+})(jQuery);
+
+//「页面刷新」事件触发运行
+$(document).ready(function() {
+    MyApp.initPjax();
+});
+</script>
 
 <body>
   <header style="height: <%- banner_img_height %>vh;">
@@ -41,6 +81,7 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
     </div>
   </header>
 
+<div id="pjax-container">
   <main>
     <% if(is_post() || page.layout === '404') { %>
       <%- body %>
@@ -76,12 +117,22 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
     <%- partial('_partial/search') %>
   <% } %>
 
-  <% if (theme.aplayer && theme.aplayer.enable) { %>
     <!-- APlayer 音乐播放器 -->
-    <div id="aplayer"></div>
     <%- partial('_partial/plugins/aplayer.ejs') %>
-  <% } %>
-
+	<meting-js
+		server="netease"
+		type="album"
+		id="97767168"
+		fixed="true"
+		autoplay="true"
+		loop="all"
+		order="random"
+		preload="auto"
+		list-max-height="500px"
+		lrc-type= "0"
+	</meting-js>
+    
+	
   <% if (theme.custom_html) { %>
     <div class="col-lg-7 mx-auto nopadding-md">
       <div class="container custom mx-auto">
@@ -89,8 +140,9 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
       </div>
     </div>
   <% } %>
-
+  </div>
+  
   <%- partial('_partial/footer', { data: { 'subtitle': subtitle } }) %>
-
+  
 </body>
 </html>
